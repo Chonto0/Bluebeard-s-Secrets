@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://bogttsk1ghca7"]
+
+[ext_resource type="Script" path="res://GD's/dialogo_2.gd" id="1_c00mb"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_rlkv4"]
+
+[node name="dialogo2" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c00mb")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_rlkv4")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 109.0
+offset_top = -167.0
+offset_right = -108.0
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 0
+bbcode_enabled = true
+fit_content = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(578, 325)

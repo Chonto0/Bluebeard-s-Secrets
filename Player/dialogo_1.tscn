@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcfgeww1xonng"]
+
+[ext_resource type="Script" path="res://GD's/dialogo_1.gd" id="1_4am28"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_djenm"]
+
+[node name="Dialogo1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4am28")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_djenm")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 109.0
+offset_top = -167.0
+offset_right = -108.0
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 0
+bbcode_enabled = true
+fit_content = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 323)

@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=3 uid="uid://cugh3w1roptsq"]
+
+[ext_resource type="Script" path="res://GD's/dialogos.gd" id="1_bp1ej"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ck4fs"]
+
+[node name="DialogosPreMP0" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Dialogos" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 14.4
+anchor_top = 16.2
+anchor_right = 14.4
+anchor_bottom = 16.2
+offset_left = -576.0
+offset_top = -648.0
+offset_right = 576.0
+script = ExtResource("1_bp1ej")
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Dialogos"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_ck4fs")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Dialogos"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 111.0
+offset_top = -159.0
+offset_right = -117.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 0
+bbcode_enabled = true
+text = "\"El aire se vuelve pesado y helado cuando la puerta cede, rechinando con un sonido seco que rasga el silencio. La oscuridad de la habitación cede lentamente a la luz temblorosa que entra tras ella, revelando figuras inmóviles, pálidas y cubiertas de polvo. El hedor de la muerte y la podredumbre golpea su rostro, obligándola a contener el aliento mientras el terror se instala en su pecho como un nudo. Allí, alineadas y despojadas de vida, yacen las mujeres que le precedieron: sus ojos vacíos aún parecen implorar escape. Un escalofrío le recorre la espalda; no es sólo el horror lo que siente, sino la certeza de que ella estaba destinada a ser la siguiente.\""
+fit_content = true
+
+[node name="Timer" type="Timer" parent="Dialogos"]
+one_shot = true
+autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(571, 336)
+zoom = Vector2(1, 1.031)
+
+[connection signal="timeout" from="Dialogos/Timer" to="Dialogos" method="_on_timer_timeout"]

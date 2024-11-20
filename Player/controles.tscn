@@ -1,0 +1,104 @@
+[gd_scene load_steps=9 format=3 uid="uid://ciibjxnv5l15r"]
+
+[ext_resource type="Script" path="res://GD's/controles.gd" id="1_0ar2v"]
+[ext_resource type="Texture2D" uid="uid://bjtd40m8vqrt1" path="res://Fondos/Tercero.png" id="1_5bdsu"]
+[ext_resource type="Texture2D" uid="uid://kl1t2hy03jlb" path="res://interaction/arrib.jpg" id="2_h6b1g"]
+[ext_resource type="Texture2D" uid="uid://cpwy113qj43ne" path="res://interaction/abajo.jpg" id="3_kxawm"]
+[ext_resource type="Texture2D" uid="uid://dt6lkrvddllk" path="res://interaction/izq.jpg" id="4_wd8cl"]
+[ext_resource type="Texture2D" uid="uid://bgjxkbl4kh5ne" path="res://interaction/derecha.jpg" id="5_ltqka"]
+[ext_resource type="Texture2D" uid="uid://yjmambu0232u" path="res://interaction/TE.png" id="6_4m5sp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_72gcd"]
+bg_color = Color(0.750478, 0.529912, 0.369616, 0.854902)
+
+[node name="Controles" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0ar2v")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 1257.0
+offset_bottom = 648.0
+texture = ExtResource("1_5bdsu")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 816.0
+offset_top = 158.0
+offset_right = -132.0
+offset_bottom = -445.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+text = "Movimiento del personaje"
+
+[node name="Arriba" type="Sprite2D" parent="."]
+position = Vector2(748, 156)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_h6b1g")
+
+[node name="Abajo" type="Sprite2D" parent="."]
+position = Vector2(748, 203)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_kxawm")
+
+[node name="Izquierda" type="Sprite2D" parent="."]
+position = Vector2(704, 203)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_wd8cl")
+
+[node name="Derecha" type="Sprite2D" parent="."]
+position = Vector2(792, 203)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_ltqka")
+
+[node name="E" type="Sprite2D" parent="."]
+position = Vector2(426, 179)
+scale = Vector2(0.092, 0.092)
+texture = ExtResource("6_4m5sp")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 264.0
+offset_top = 159.0
+offset_right = -797.0
+offset_bottom = -464.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+text = "Interactuar"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.71
+anchor_right = 0.5
+anchor_bottom = 0.71
+offset_left = -105.0
+offset_top = -35.08
+offset_right = 106.0
+offset_bottom = 34.92
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_72gcd")
+text = "JUGAR"
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]

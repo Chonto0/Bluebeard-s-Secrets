@@ -1,0 +1,84 @@
+[gd_scene load_steps=11 format=3 uid="uid://c6v4gqivq2lij"]
+
+[ext_resource type="Script" path="res://GD's/pollo.gd" id="1_t02hm"]
+[ext_resource type="Texture2D" uid="uid://xvio2dakrmgd" path="res://Tilesets/Cute_Fantasy_Free/Animals/Chicken/Chicken.png" id="2_1ymu8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uivru"]
+atlas = ExtResource("2_1ymu8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pilc"]
+atlas = ExtResource("2_1ymu8")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvjng"]
+atlas = ExtResource("2_1ymu8")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_td0bi"]
+atlas = ExtResource("2_1ymu8")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6qb6"]
+atlas = ExtResource("2_1ymu8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ba1rs"]
+atlas = ExtResource("2_1ymu8")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_usdwn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uivru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7pilc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvjng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_td0bi")
+}],
+"loop": true,
+"name": &"Caminar",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6qb6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ba1rs")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uqydv"]
+size = Vector2(6, 3)
+
+[node name="Pollo" type="CharacterBody2D"]
+texture_filter = 1
+script = ExtResource("1_t02hm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, 0)
+sprite_frames = SubResource("SpriteFrames_usdwn")
+animation = &"Idle"
+
+[node name="CambioEstado" type="Timer" parent="."]
+autostart = true
+
+[node name="Caminar" type="Timer" parent="."]
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 4.5)
+shape = SubResource("RectangleShape2D_uqydv")
+
+[connection signal="timeout" from="CambioEstado" to="." method="_on_cambio_estado_timeout"]
+[connection signal="timeout" from="Caminar" to="." method="_on_caminar_timeout"]

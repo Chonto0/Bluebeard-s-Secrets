@@ -1,0 +1,97 @@
+[gd_scene load_steps=5 format=3 uid="uid://c63u0o3mudvit"]
+
+[ext_resource type="Script" path="res://Scrips/menu.gd" id="1_xya8j"]
+[ext_resource type="Texture2D" uid="uid://drun060e8h2ge" path="res://Fondos/fondo1.jpg" id="2_dq6nk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_55x87"]
+bg_color = Color(0.750478, 0.529912, 0.369616, 0.854902)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3l13a"]
+bg_color = Color(0.74902, 0.529412, 0.368627, 0.854902)
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.272
+offset_top = -73.844
+offset_right = 139.272
+offset_bottom = 73.844
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xya8j")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -145.0
+offset_right = 145.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.168627, 0.282353, 0.478431, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -495.0
+offset_top = -251.0
+offset_right = 507.456
+offset_bottom = 241.312
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_dq6nk")
+expand_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.692
+anchor_right = 0.5
+anchor_bottom = 1.692
+offset_left = -110.0
+offset_top = -55.0441
+offset_right = 199.0
+offset_bottom = 201.956
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+theme_override_constants/separation = 25
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_55x87")
+text = "JUGAR"
+
+[node name="Salir" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_3l13a")
+text = "SALIR"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(140.272, 63.844)
+zoom = Vector2(1, 1.031)
+limit_left = 0
+limit_top = 0
+limit_right = 1730
+limit_bottom = 543
+drag_left_margin = 1.0
+drag_top_margin = 1.0
+drag_right_margin = 1.0
+drag_bottom_margin = 1.0
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Salir" to="." method="_on_salir_pressed"]

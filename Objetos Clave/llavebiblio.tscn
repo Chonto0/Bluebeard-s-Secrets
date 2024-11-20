@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://b1r616n8td7x7"]
+
+[ext_resource type="Script" path="res://GD's/llavebiblio.gd" id="1_21qut"]
+[ext_resource type="Texture2D" uid="uid://bjb1rkmnn3ng2" path="res://Tilesets/sprites/objects/keys_1_1.png" id="2_mpkss"]
+[ext_resource type="PackedScene" uid="uid://bknhgi7vjf0tw" path="res://interaction/interaction area/interaction_area.tscn" id="3_2i2nr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1no5u"]
+size = Vector2(10, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ia4in"]
+radius = 14.0
+
+[node name="llavebiblio" type="StaticBody2D"]
+script = ExtResource("1_21qut")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_mpkss")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_1no5u")
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_2i2nr")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_ia4in")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

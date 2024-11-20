@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwd8vk3bvqs77"]
+
+[ext_resource type="Script" path="res://GD's/control.gd" id="1_qxtqi"]
+[ext_resource type="Texture2D" uid="uid://cnc44ilxalb0u" path="res://Fondos/fondo2.jpg" id="1_t21db"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wb8cq"]
+bg_color = Color(0.74902, 0.529412, 0.368627, 0.854902)
+
+[node name="FinalJuego" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_qxtqi")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -57.0
+offset_right = 1222.0
+offset_bottom = 648.0
+texture = ExtResource("1_t21db")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 14.204
+anchor_top = 13.949
+anchor_right = 14.204
+anchor_bottom = 13.949
+offset_left = -108.16
+offset_top = -137.96
+offset_right = 200.84
+offset_bottom = 119.04
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Salir" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_wb8cq")
+text = "SALIR"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(578, 316)
+zoom = Vector2(1, 1.031)
+
+[connection signal="pressed" from="Control/VBoxContainer/Salir" to="Control" method="_on_salir_pressed"]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://wcpftp7hf2id"]
+
+[ext_resource type="Script" path="res://GD's/fin_juegoportal.gd" id="1_y1afa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xboy8"]
+size = Vector2(48, 24)
+
+[node name="FinJuego" type="Area2D"]
+script = ExtResource("1_y1afa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(584, 556)
+shape = SubResource("RectangleShape2D_xboy8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
